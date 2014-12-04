@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <title>SIACAM</title>
+        <link rel="shortcut icon" href="resources/images/logo_bit.ico"/>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+        <h:outputStylesheet name="bootstrap/css/bootstrap.css" />
+        <h:outputStylesheet name="css/dashboard.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" />
+        <h:outputScript name="bootstrap/js/bootstrap.js" />
+        <script src="js/jquery-1.11.0.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    </h:head>
+
+    <h:body>
+        <ui:include src="header.xhtml" />
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3 col-md-2 sidebar">
+                    <div>
+                        <img src="resources/images/logo.png"/>
+                    </div>
+                    <hr/>
+
+                </div>
+                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">                    
+
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h1 class="panel-title">Bienvenido a SIACAM</h1>
+                        </div>
+                        <div class="panel-body">
+                            <p align="justify">Visión
+                                Ser una institución rectora, fuerte e integrada, moderna; que brinde atención a las expectativas de la población, con honestidad y transparencia; promoviendo la participación ciudadana con equidad de género. Mejorando la gestión de riesgo y promoviendo la armonía con el medio ambiente.
+                                Misión
+                                Somos una administración municipal basada en principios y valores; con proyección humana e inclusión a los diferentes sectores, para contribuir a mejorar la calidad de vida y el desarrollo integral de la población.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>      
+        <br />
+        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
+    </h:body>
+</html>
+

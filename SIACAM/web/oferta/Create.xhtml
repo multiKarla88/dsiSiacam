@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title><h:outputText value="Ingresar Oferta"></h:outputText></title>
+        <link rel="shortcut icon" href="../resources/images/logo_bit.ico"/>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+        <h:outputStylesheet name="bootstrap/css/bootstrap.css" />
+        <h:outputStylesheet name="css/dashboard.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" />
+        <h:outputScript name="bootstrap/js/bootstrap.js" />
+        <script src="js/jquery-1.11.0.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    </h:head>
+    <h:body>
+        <ui:include src="../header.xhtml" />
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3 col-md-2 sidebar">
+                    <div>
+                        <img src="../resources/images/logo.png"/>
+                    </div>
+                    <hr/>
+                    <ul class="nav nav-sidebar">
+                        <li><a href="http://localhost:8080/SIACAM/faces/oferta/View.xhtml">Consultar Ofertas</a></li>
+                        <li class="active"><a href="#">Agregar Oferta</a></li>
+                        <li><a href="http://localhost:8080/SIACAM/faces/oferta/Edit.xhtml">Editar Ofertas</a></li>
+                        <li><a href="http://localhost:8080/SIACAM/faces/oferta/List.xhtml">Listar Ofertas</a></li>
+                    </ul>      
+                </div>
+                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main"> 
+                    <h3>Ingreso de ofertas</h3>
+                    <br/>
+                    <h:panelGroup id="messagePanel" layout="block">
+                        <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                    </h:panelGroup>
+                    <h:form>
+                        <h:panelGrid columns="2">
+                            <h:outputLabel value="Expediente:" for="expedienteproceso" />
+                            <h:selectOneMenu id="expedienteproceso" value="#{ofertaController.selected.expedienteproceso}" title="#{bundle.CreateOfertaTitle_expedienteproceso}" required="true" requiredMessage="Expediente es requerido">
+                                <f:selectItems value="#{expedienteprocesoController.itemsAvailableSelectOne}"/>
+                            </h:selectOneMenu>
+                            <h:outputLabel value="Oferente:" for="oferente" />
+                            <h:selectOneMenu id="oferente" value="#{ofertaController.selected.oferente}" title="#{bundle.CreateOfertaTitle_oferente}" required="true" requiredMessage="Oferente es requerido">
+                                <f:selectItems value="#{oferenteController.itemsAvailableSelectOne}"/>
+                            </h:selectOneMenu>
+                            <h:outputLabel value="Estado de oferta:" for="estadooferta" />
+                            <h:selectOneMenu id="estadooferta" value="#{ofertaController.selected.estadooferta}" title="#{bundle.CreateOfertaTitle_estadooferta}" required="true" requiredMessage="#{bundle.CreateOfertaRequiredMessage_estadooferta}">
+                                <f:selectItem itemLabel="Aprobada" itemValue="A" />
+                                <f:selectItem itemLabel="Rechazada" itemValue="R" />
+                                <f:selectItem itemLabel="En revisión" itemValue="P" />
+                                <f:selectItem itemLabel="Seleccionada" itemValue="S" />
+                            </h:selectOneMenu>
+                            <h:outputLabel value="Monto de oferta:" for="montooferta" />
+                            <h:inputText id="montooferta" value="#{ofertaController.selected.montooferta}" title="#{bundle.CreateOfertaTitle_montooferta}" required="true" requiredMessage="Monto de oferta es requerido"/>
+                        </h:panelGrid>
+                        <br />
+                        <h:commandLink action="#{ofertaController.create}"><button type="button" class="btn btn-default">Guardar</button></h:commandLink>
+                        <h:commandLink action="#{ofertaController.prepareList}" immediate="true"><button type="button" class="btn btn-default">Listar</button></h:commandLink>
+                        <br />
+                        <br />
+                        <h:link outcome="/index"><button type="button" class="btn btn-default">Inicio</button></h:link>
+                    </h:form>
+                </div>
+            </div>
+        </div>
+    </h:body>
+</html>

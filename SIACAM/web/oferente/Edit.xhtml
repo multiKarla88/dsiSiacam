@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+   <h:head>
+        <title><h:outputText value="Oferente - Editar"></h:outputText></title>
+        <link rel="shortcut icon" href="../resources/images/logo_bit.ico"/>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+        <h:outputStylesheet name="bootstrap/css/bootstrap.css" />
+        <h:outputStylesheet name="css/dashboard.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" />
+        <h:outputScript name="bootstrap/js/bootstrap.js" />
+        <script src="js/jquery-1.11.0.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    </h:head>
+        <h:body>
+         <ui:include src="../header.xhtml" />
+         <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3 col-md-2 sidebar">
+                        <div>
+			<img src="../resources/images/logo.png"/>
+			</div>
+                    <hr/>
+                        <ul class="nav nav-sidebar">
+                            <li class="active"><a href="http://localhost:8080/SIACAM/faces/oferente/List.xhtml">Lista de Oferentes</a></li>
+                            <li><a href="http://localhost:8080/SIACAM/faces/oferente/Create.xhtml">Agregar Oferente</a></li>
+                            
+                        </ul>
+                        
+                             
+                </div>
+                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main"> 
+                     <h3>Editando Oferente                     <h:outputText value="#{oferenteController.selected.nombreoferente}" title="#{bundle.ViewOferenteTitle_nombreoferente}"/></h3>
+                     <br></br>
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="Nombre" for="nombreoferente" />
+                    <h:inputText id="nombreoferente" value="#{oferenteController.selected.nombreoferente}" title="#{bundle.EditOferenteTitle_nombreoferente}" required="true" requiredMessage="#{bundle.EditOferenteRequiredMessage_nombreoferente}"/>
+                    <h:outputLabel value="Teléfono" for="telefonooferente" />
+                    <h:inputText id="telefonooferente" value="#{oferenteController.selected.telefonooferente}" title="#{bundle.EditOferenteTitle_telefonooferente}" required="true" requiredMessage="#{bundle.EditOferenteRequiredMessage_telefonooferente}"/>
+                    <h:outputLabel value="Fax" for="faxoferente" />
+                    <h:inputText id="faxoferente" value="#{oferenteController.selected.faxoferente}" title="#{bundle.EditOferenteTitle_faxoferente}" />
+                    <h:outputLabel value="Email" for="emailoferente" />
+                    <h:inputText id="emailoferente" value="#{oferenteController.selected.emailoferente}" title="#{bundle.EditOferenteTitle_emailoferente}" required="true" requiredMessage="#{bundle.EditOferenteRequiredMessage_emailoferente}"/>
+                    <h:outputLabel value="Tipo de Servicio" for="tiposervicio" />
+                    <h:inputText id="tiposervicio" value="#{oferenteController.selected.tiposervicio}" title="#{bundle.EditOferenteTitle_tiposervicio}" required="true" requiredMessage="#{bundle.EditOferenteRequiredMessage_tiposervicio}"/>
+                    <h:outputLabel value="Calificacion" for="calificacion" />
+                    <h:inputText id="calificacion" value="#{oferenteController.selected.calificacion}" title="#{bundle.EditOferenteTitle_calificacion}" />
+                    <h:outputLabel value="Estado" for="estadooferente" />
+                    <h:inputText id="estadooferente" value="#{oferenteController.selected.estadooferente}" title="#{bundle.EditOferenteTitle_estadooferente}" required="true" requiredMessage="#{bundle.EditOferenteRequiredMessage_estadooferente}"/>
+                </h:panelGrid>
+                <br/>
+                <br/>
+                <p>'
+                <button type="button" class="btn btn-default" >
+                     <span class="glyphicon glyphicon-floppy-saved"></span>&nbsp;<h:commandLink action="#{oferenteController.update}" value="Guardar Cambios"/>
+                </button>
+                <button type="button" class="btn btn-default" >
+                    <span class="glyphicon glyphicon-ban-circle"></span>&nbsp; <h:commandLink action="#{oferenteController.prepareList}" value="Cancelar" immediate="true"/>
+                </button>
+                </p>
+                <br />
+                <br />
+              
+            </h:form>
+     </div>
+            </div>
+        </div> 
+        </h:body>
+
+</html>

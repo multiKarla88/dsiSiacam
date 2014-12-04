@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <title><h:outputText value="Oferentes"></h:outputText></title>
+        <link rel="shortcut icon" href="../resources/images/logo_bit.ico"/>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+        <h:outputStylesheet name="bootstrap/css/bootstrap.css" />
+        <h:outputStylesheet name="css/dashboard.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" />
+        <h:outputScript name="bootstrap/js/bootstrap.js" />
+        <script src="js/jquery-1.11.0.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    </h:head>
+    <h:body>
+         <ui:include src="../header.xhtml" />
+         <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3 col-md-2 sidebar">
+                        <div>
+			<img src="../resources/images/logo.png"/>
+			</div>
+                    <hr/>
+                        <ul class="nav nav-sidebar">
+                            <li class="active"><a href="http://localhost:8080/SIACAM/faces/oferente/List.xhtml">Lista de Oferentes</a></li>
+                            <li><a href="http://localhost:8080/SIACAM/faces/oferente/Create.xhtml">Agregar Oferente</a></li>
+                            
+                        </ul>
+                        
+                             
+                </div>
+                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">    
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h2>Lista de Oferentes Registrados por Alcaldia de Mejicanos</h2>
+                <h:outputText escape="false" value="#{bundle.ListOferenteEmpty}" rendered="#{oferenteController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{oferenteController.items.rowCount > 0}">
+                    <h:outputText value="#{oferenteController.pagination.pageFirstItem + 1}..#{oferenteController.pagination.pageLastItem + 1}/#{oferenteController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{oferenteController.previous}" value="#{bundle.Previous} #{oferenteController.pagination.pageSize}" rendered="#{oferenteController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{oferenteController.next}" value="#{bundle.Next} #{oferenteController.pagination.pageSize}" rendered="#{oferenteController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{oferenteController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOferenteTitle_nombreoferente}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombreoferente}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOferenteTitle_telefonooferente}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.telefonooferente}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOferenteTitle_faxoferente}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.faxoferente}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOferenteTitle_emailoferente}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.emailoferente}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOferenteTitle_tiposervicio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tiposervicio}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOferenteTitle_calificacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.calificacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOferenteTitle_estadooferente}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estadooferente}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Opciones"/>
+                            </f:facet>
+                            
+                                <button type="button" class="btn btn-default" >
+                                    <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<h:commandLink action="#{oferenteController.prepareView}" value="Ver"/>
+                                                                                           <h:outputText value=" "/>
+                                </button>
+                                <button type="button" class="btn btn-default" >
+                                    <span class="glyphicon glyphicon-pencil"></span>&nbsp;<h:commandLink action="#{oferenteController.prepareEdit}" value="Editar"/>
+                                                                                           <h:outputText value=" "/>
+                                </button>
+                                <button type="button" class="btn btn-default" >
+                                    <span class="glyphicon glyphicon-remove-sign"></span>&nbsp;<h:commandLink action="#{oferenteController.destroy}" value="Eliminar"/>
+                                </button>
+                            
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <br />
+                <br />
+                
+            </h:form>
+                </div>
+            </div>
+        </div>  
+       </h:body>
+</html>
