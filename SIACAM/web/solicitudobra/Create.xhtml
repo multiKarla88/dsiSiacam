@@ -114,9 +114,9 @@
                             <p:message for="dependenciaadmincontrato" />
                             
                             <p:outputLabel value="Id De Unidad Solicitante:" for="idUs" />
-                            <p:selectOneMenu id="idUs" value="#{solicitudobraController.selected.idUs}" >
+                            <h:selectOneMenu id="idUs" value="#{solicitudobraController.selected.idUs}" title="Id de Solicitud">
                                 <f:selectItems value="#{unidadSolicitanteController.itemsAvailableSelectOne}"/>
-                            </p:selectOneMenu>
+                            </h:selectOneMenu>
                             <p:message for="idUs" />
                         </h:panelGrid>
                                

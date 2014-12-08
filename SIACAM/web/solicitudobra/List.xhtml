@@ -58,12 +58,12 @@
                                     </f:facet>
                                     <h:outputText value="#{item.nombresolicitante}"/>
                                 </h:column>
-                                <h:column>
+<!--                                <h:column>
                                     <f:facet name="header">
                                         <h:outputText value="#{bundle.ListSolicitudobraTitle_cargosolicitante}"/>
                                     </f:facet>
                                     <h:outputText value="#{item.cargosolicitante}"/>
-                                </h:column>
+                                </h:column>-->
                                 <h:column>
                                     <f:facet name="header">
                                         <h:outputText value="#{bundle.ListSolicitudobraTitle_dependenciasolicitante}"/>
@@ -84,24 +84,24 @@
                                     </f:facet>
                                     <h:outputText value="#{item.nombreautorizante}"/>
                                 </h:column>
-                                <h:column>
+<!--                                <h:column>
                                     <f:facet name="header">
                                         <h:outputText value="#{bundle.ListSolicitudobraTitle_cargoautorizante}"/>
                                     </f:facet>
                                     <h:outputText value="#{item.cargoautorizante}"/>
-                                </h:column>
+                                </h:column>-->
                                 <h:column>
                                     <f:facet name="header">
                                         <h:outputText value="#{bundle.ListSolicitudobraTitle_dependenciaautorizante}"/>
                                     </f:facet>
                                     <h:outputText value="#{item.dependenciaautorizante}"/>
                                 </h:column>
-                                <h:column>
+<!--                                <h:column>
                                     <f:facet name="header">
                                         <h:outputText value="#{bundle.ListSolicitudobraTitle_justificacion}"/>
                                     </f:facet>
                                     <h:outputText value="#{item.justificacion}"/>
-                                </h:column>
+                                </h:column>-->
                                 <h:column>
                                     <f:facet name="header">
                                         <h:outputText value="#{bundle.ListSolicitudobraTitle_valorestimado}"/>
@@ -114,42 +114,42 @@
                                     </f:facet>
                                     <h:outputText value="#{item.formaentrega}"/>
                                 </h:column>
-                                <h:column>
+<!--                                <h:column>
                                     <f:facet name="header">
                                         <h:outputText value="#{bundle.ListSolicitudobraTitle_lugarentrega}"/>
                                     </f:facet>
                                     <h:outputText value="#{item.lugarentrega}"/>
-                                </h:column>
-                                <h:column>
+                                </h:column>-->
+<!--                                <h:column>
                                     <f:facet name="header">
                                         <h:outputText value="#{bundle.ListSolicitudobraTitle_otrascondiciones}"/>
                                     </f:facet>
                                     <h:outputText value="#{item.otrascondiciones}"/>
-                                </h:column>
-                                <h:column>
+                                </h:column>-->
+<!--                                <h:column>
                                     <f:facet name="header">
                                         <h:outputText value="#{bundle.ListSolicitudobraTitle_observaciones}"/>
                                     </f:facet>
                                     <h:outputText value="#{item.observaciones}"/>
-                                </h:column>
+                                </h:column>-->
                                 <h:column>
                                     <f:facet name="header">
                                         <h:outputText value="#{bundle.ListSolicitudobraTitle_nombreadmcontrato}"/>
                                     </f:facet>
                                     <h:outputText value="#{item.nombreadmcontrato}"/>
                                 </h:column>
-                                <h:column>
+<!--                                <h:column>
                                     <f:facet name="header">
                                         <h:outputText value="#{bundle.ListSolicitudobraTitle_cargoadmincontrato}"/>
                                     </f:facet>
                                     <h:outputText value="#{item.cargoadmincontrato}"/>
-                                </h:column>
-                                <h:column>
+                                </h:column>-->
+<!--                                <h:column>
                                     <f:facet name="header">
                                         <h:outputText value="#{bundle.ListSolicitudobraTitle_dependenciaadmincontrato}"/>
                                     </f:facet>
                                     <h:outputText value="#{item.dependenciaadmincontrato}"/>
-                                </h:column>
+                                </h:column>-->
                                 <h:column>
                                     <f:facet name="header">
                                         <h:outputText value="#{bundle.ListSolicitudobraTitle_idUs}"/>
@@ -171,6 +171,9 @@
                                     <h:outputText value=" "/>
                                     <button type="submit" class="btn btn-default">
                                         <h:commandLink action="#{solicitudobraController.destroy}" value= "Eliminar"/>
+                                    </button> 
+                                    <button type="submit" class="btn btn-default">
+                                        <h:commandLink action="#{detallesolicitudobraController.prepareView}" value="#{bundle.ListDetallesolicitudobraViewLink}"/>
                                     </button> 
                                 </h:column>
                             </h:dataTable>
