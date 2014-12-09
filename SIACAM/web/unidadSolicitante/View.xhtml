@@ -9,31 +9,53 @@
         <ui:define name="title">
             <h:outputText value="#{bundle.ViewUnidadSolicitanteTitle}"></h:outputText>
         </ui:define>
-        <ui:define name="body">
-            <h:panelGroup id="messagePanel" layout="block">
-                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-            </h:panelGroup>
-            <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewUnidadSolicitanteLabel_idUs}"/>
-                    <h:outputText value="#{unidadSolicitanteController.selected.idUs}" title="#{bundle.ViewUnidadSolicitanteTitle_idUs}"/>
-                    <h:outputText value="#{bundle.ViewUnidadSolicitanteLabel_nombreUnidad}"/>
-                    <h:outputText value="#{unidadSolicitanteController.selected.nombreUnidad}" title="#{bundle.ViewUnidadSolicitanteTitle_nombreUnidad}"/>
-                </h:panelGrid>
-                <br />
-                <h:commandLink action="#{unidadSolicitanteController.destroyAndView}" value="#{bundle.ViewUnidadSolicitanteDestroyLink}"/>
-                <br />
-                <br />
-                <h:link outcome="Edit" value="#{bundle.ViewUnidadSolicitanteEditLink}"/>
-                <br />
-                <h:commandLink action="#{unidadSolicitanteController.prepareCreate}" value="#{bundle.ViewUnidadSolicitanteCreateLink}" />
-                <br />
-                <h:commandLink action="#{unidadSolicitanteController.prepareList}" value="#{bundle.ViewUnidadSolicitanteShowAllLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ViewUnidadSolicitanteIndexLink}"/>
 
-            </h:form>
+        <ui:define name="body">
+            <ui:include src="../header.xhtml" />
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-3 col-md-2 sidebar">
+                        <div>
+                            <img src="../resources/images/logo.png"/>
+                        </div>
+                        <hr/>
+                        <ul class="nav nav-sidebar">
+                            <li class="active"><a href="http://localhost:8088/SIACAM/faces/unidadSolicitante/List.xhtml">Lista De Unidades Solicitantes</a></li>
+                        </ul>
+
+
+
+                    </div>
+                    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main"> 
+                        <h3>Vista de la Unidad Solicitante</h3>
+
+                        <h:panelGroup id="messagePanel" layout="block">
+                            <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                        </h:panelGroup>
+                        <h:form>
+                            <h:panelGrid columns="2">
+                                <h:outputText value="#{bundle.ViewUnidadSolicitanteLabel_idUs}"/>
+                                <h:outputText value="#{unidadSolicitanteController.selected.idUs}" title="#{bundle.ViewUnidadSolicitanteTitle_idUs}"/>
+                                <h:outputText value="#{bundle.ViewUnidadSolicitanteLabel_nombreUnidad}"/>
+                                <h:outputText value="#{unidadSolicitanteController.selected.nombreUnidad}" title="#{bundle.ViewUnidadSolicitanteTitle_nombreUnidad}"/>
+                            </h:panelGrid>
+                            <br />
+                            <h:commandLink action="#{unidadSolicitanteController.destroyAndView}" value="#{bundle.ViewUnidadSolicitanteDestroyLink}"/>
+                            <br />
+                            <br />
+                            <h:link outcome="Edit" value="#{bundle.ViewUnidadSolicitanteEditLink}"/>
+                            <br />
+                            <h:commandLink action="#{unidadSolicitanteController.prepareCreate}" value="#{bundle.ViewUnidadSolicitanteCreateLink}" />
+                            <br />
+                            <h:commandLink action="#{unidadSolicitanteController.prepareList}" value="#{bundle.ViewUnidadSolicitanteShowAllLink}"/>
+                            <br />
+                            <br />
+                            <h:link outcome="/index" value="#{bundle.ViewUnidadSolicitanteIndexLink}"/>
+                        </h:form>
+                    </div>
+                </div> 
+            </div> 
+
         </ui:define>
     </ui:composition>
 

@@ -11,6 +11,7 @@ import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -139,7 +140,7 @@ public class Solicitudobra implements Serializable {
     @JoinColumn(name = "ID_US", referencedColumnName = "ID_US")
     @ManyToOne
     private UnidadSolicitante idUs;
-    @OneToMany(mappedBy = "idSolicitud")
+    @OneToMany(mappedBy = "idSolicitud", cascade = {CascadeType.ALL })
     private Collection<Detallesolicitudobra> detallesolicitudobraCollection;
 
     public Solicitudobra() {

@@ -6,61 +6,52 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
-    <h:head>
-        <title><h:outputText value="Ingresar Solicitud"></h:outputText></title>
-        <link rel="shortcut icon" href="../resources/images/logo_bit.ico"/>
-        <h:outputStylesheet name="css/jsfcrud.css"/>
-        <h:outputStylesheet name="bootstrap/css/bootstrap.css" />
-        <h:outputStylesheet name="css/dashboard.css" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" />
-        <h:outputScript name="bootstrap/js/bootstrap.js" />
-        <script src="js/jquery-1.11.0.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-    </h:head>
 
-    <h:body>   
+    <ui:composition template="/template.xhtml">
+        <ui:define name="body">  
 
-        <ui:include src="../header.xhtml" />
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-3 col-md-2 sidebar">
-                    <div>
-                        <img src="../resources/images/logo.png"/>
+            <ui:include src="../header.xhtml" />
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-3 col-md-2 sidebar">
+                        <div>
+                            <img src="../resources/images/logo.png"/>
+                        </div>
+                        <hr/>
+                        <ul class="nav nav-sidebar">
+                            <li class="active"><a href="http://localhost:8088/SIACAM/faces/unidadSolicitante/List.xhtml">Lista De Unidades Solicitantes</a></li>
+                        </ul>
+
+
+
                     </div>
-                    <hr/>
-                    <ul class="nav nav-sidebar">
-                        <li class="active"><a href="http://localhost:8088/SIACAM/faces/unidadSolicitante/List.xhtml">Lista De Unidades Solicitantes</a></li>
-                    </ul>
-         
+                    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main"> 
+                        <h3>Ingrese los datos de la Unidad Solicitante</h3>
 
-
-                </div>
-                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main"> 
-                    <h3>Ingrese los datos de la Unidad Solicitante</h3>
-
-                    <h:panelGroup id="messagePanel" layout="block">
-                        <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-                    </h:panelGroup>
-                    <h:form>
-                        <h:panelGrid id="grid" columns="3" cellpadding="5">
-                            <p:outputLabel value="Id de Unidad Solicitante" for="idUs" />
-                            <p:inputText id="idUs" value="#{unidadSolicitanteController.selected.idUs}" title="#{bundle.CreateUnidadSolicitanteTitle_idUs}" required="true" requiredMessage="#{bundle.CreateUnidadSolicitanteRequiredMessage_idUs}"/>
-                            <p:message for="idUs" />
-                            <p:outputLabel value="Unidad Solicitante" for="nombreUnidad" />
-                            <p:inputText id="nombreUnidad" value="#{unidadSolicitanteController.selected.nombreUnidad}" title="#{bundle.CreateUnidadSolicitanteTitle_nombreUnidad}" required="true" requiredMessage="#{bundle.CreateUnidadSolicitanteRequiredMessage_nombreUnidad}"/>
-                            <p:message for="nombreUnidad" />
-                        </h:panelGrid>
-                        <br />
-                        <h:commandLink action="#{unidadSolicitanteController.create}" value="#{bundle.CreateUnidadSolicitanteSaveLink}" />
-                        <br />
-                        <br />
-                        <h:commandLink action="#{unidadSolicitanteController.prepareList}" value="#{bundle.CreateUnidadSolicitanteShowAllLink}" immediate="true"/>
-                        <br />
-                        <br />
-                        <h:link outcome="/index" value="#{bundle.CreateUnidadSolicitanteIndexLink}"/>
-                    </h:form>
-                </div>
-            </div> 
-        </div>
-    </h:body>
+                        <h:panelGroup id="messagePanel" layout="block">
+                            <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                        </h:panelGroup>
+                        <h:form>
+                            <h:panelGrid id="grid" columns="3" cellpadding="5">
+                                <p:outputLabel value="Id de Unidad Solicitante" for="idUs" />
+                                <p:inputText id="idUs" value="#{unidadSolicitanteController.selected.idUs}" title="#{bundle.CreateUnidadSolicitanteTitle_idUs}" required="true" requiredMessage="#{bundle.CreateUnidadSolicitanteRequiredMessage_idUs}"/>
+                                <p:message for="idUs" />
+                                <p:outputLabel value="Unidad Solicitante" for="nombreUnidad" />
+                                <p:inputText id="nombreUnidad" value="#{unidadSolicitanteController.selected.nombreUnidad}" title="#{bundle.CreateUnidadSolicitanteTitle_nombreUnidad}" required="true" requiredMessage="#{bundle.CreateUnidadSolicitanteRequiredMessage_nombreUnidad}"/>
+                                <p:message for="nombreUnidad" />
+                            </h:panelGrid>
+                            <br />
+                            <h:commandLink action="#{unidadSolicitanteController.create}" value="#{bundle.CreateUnidadSolicitanteSaveLink}" />
+                            <br />
+                            <br />
+                            <h:commandLink action="#{unidadSolicitanteController.prepareList}" value="#{bundle.CreateUnidadSolicitanteShowAllLink}" immediate="true"/>
+                            <br />
+                            <br />
+                            <h:link outcome="/index" value="#{bundle.CreateUnidadSolicitanteIndexLink}"/>
+                        </h:form>
+                    </div>
+                </div> 
+            </div>
+        </ui:define>
+    </ui:composition>
 </html>

@@ -5,20 +5,10 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
-    <h:head>
-        <title><h:outputText value="Ingresar Solicitud"></h:outputText></title>
-        <link rel="shortcut icon" href="../resources/images/logo_bit.ico"/>
-        <h:outputStylesheet name="css/jsfcrud.css"/>
-        <h:outputStylesheet name="bootstrap/css/bootstrap.css" />
-        <h:outputStylesheet name="css/dashboard.css" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" />
-        <h:outputScript name="bootstrap/js/bootstrap.js" />
-        <script src="js/jquery-1.11.0.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-    </h:head>
+   
 
-
-    <h:body>
+    <ui:composition template="/template.xhtml">
+     <ui:define name="body">
         <ui:include src="../header.xhtml" />
         <div class="container-fluid">
             <div class="row">
@@ -62,7 +52,7 @@
                             <p:message for="dependenciasolicitante" />
                             
                             <h:outputLabel value="Fecha:" for="fecha" />
-                            <p:inputMask id="fecha" value="#{solicitudobraController.selected.fecha}" mask="99/99/9999"  placeHolder="/" title="mes/dia/año Ejemplo:11/7/2014" required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_fecha}" />
+                            <p:calendar id="fecha" value="#{solicitudobraController.selected.fecha}" title="mes/dia/año Ejemplo:11/7/2014" required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_fecha}" showOn="button" />
                             <p:message for="fecha" />
                     
                             <p:outputLabel value="Nombre De Autorizante:" for="nombreautorizante" />
@@ -133,6 +123,7 @@
                 </div>
             </div> 
         </div> 
-    </h:body>
+    </ui:define>
+        </ui:composition>
 
 </html>
