@@ -98,10 +98,22 @@
                                 </h:dataTable>
                             </h:panelGroup>
                             <br />
-                            <h:commandLink action="#{detallesolicitudobraController.prepareCreate}" value="#{bundle.ListDetallesolicitudobraCreateLink}"/>
                             <br />
                             <br />
-                            <h:link outcome="/index" value="#{bundle.ListDetallesolicitudobraIndexLink}"/>
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <button type="submit" class="col-sm-12 btn btn-default">
+                                        <h:link outcome="/index" value="#{bundle.ListDetallesolicitudobraIndexLink}"/>
+                                    </button> 
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <button type="submit" class="col-sm-12 btn btn-default">
+                                        <h:commandLink action="#{detallesolicitudobraController.prepareCreate}" value="#{bundle.ListDetallesolicitudobraCreateLink}"/>
+                                    </button> 
+                                </div>
+                            </div>
+                            <br />
                         </h:form>
                     </div>
                 </div> 

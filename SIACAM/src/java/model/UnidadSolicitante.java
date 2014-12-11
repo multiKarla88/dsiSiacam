@@ -9,6 +9,7 @@ package model;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -44,7 +45,7 @@ public class UnidadSolicitante implements Serializable {
     @Size(min = 1, max = 70)
     @Column(name = "NOMBRE_UNIDAD")
     private String nombreUnidad;
-    @OneToMany(mappedBy = "idUs")
+    @OneToMany(mappedBy = "idUs" , cascade = {CascadeType.ALL })
     private Collection<Solicitudobra> solicitudobraCollection;
 
     public UnidadSolicitante() {

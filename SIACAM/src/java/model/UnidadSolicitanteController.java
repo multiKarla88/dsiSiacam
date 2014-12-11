@@ -16,6 +16,7 @@ import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
 
+
 @Named("unidadSolicitanteController")
 @Stateless
 public class UnidadSolicitanteController implements Serializable {
@@ -179,11 +180,11 @@ public class UnidadSolicitanteController implements Serializable {
     }
 
     public SelectItem[] getItemsAvailableSelectMany() {
-        return JsfUtil.getSelectItems(ejbFacade.findAll(), false);
+        return JsfUtil.getSelectItemsUnidadSolicitante(ejbFacade.findAll(), false);
     }
 
     public SelectItem[] getItemsAvailableSelectOne() {
-        return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
+        return JsfUtil.getSelectItemsUnidadSolicitante(ejbFacade.findAll(), true);
     }
 
     public UnidadSolicitante getUnidadSolicitante(java.lang.Short id) {

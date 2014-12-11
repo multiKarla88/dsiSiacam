@@ -25,7 +25,7 @@
                     </div>
                     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main"> 
                         <h3>Lista De Unidades</h3>  
-                        
+
                         <h:form styleClass="jsfcrud_list_form">
                             <h:panelGroup id="messagePanel" layout="block">
                                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
@@ -67,10 +67,27 @@
                                 </h:dataTable>
                             </h:panelGroup>
                             <br />
-                            <h:commandLink action="#{unidadSolicitanteController.prepareCreate}" value="#{bundle.ListUnidadSolicitanteCreateLink}"/>
                             <br />
                             <br />
-                            <h:link outcome="/index" value="#{bundle.ListUnidadSolicitanteIndexLink}"/>
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <button type="submit" class="col-sm-12 btn btn-default">
+                                        <h:link outcome="/index" value="#{bundle.ListUnidadSolicitanteIndexLink}"/>
+                                    </button> 
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <button type="submit" class="col-sm-12 btn btn-default">
+                                        <h:commandLink action="#{unidadSolicitanteController.prepareCreate}" value="#{bundle.ListUnidadSolicitanteCreateLink}"/>
+                                    </button> 
+                                </div>
+
+                            </div>
+                            <br />
                         </h:form>
                     </div>
                 </div>

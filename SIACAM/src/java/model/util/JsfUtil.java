@@ -6,6 +6,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.model.SelectItem;
+import model.UnidadSolicitante;
 
 public class JsfUtil {
 
@@ -23,6 +24,20 @@ public class JsfUtil {
         return items;
     }
 
+       public static SelectItem[] getSelectItemsUnidadSolicitante(List<UnidadSolicitante> entities, boolean selectOne) {
+        int size = selectOne ? entities.size() + 1 : entities.size();
+        SelectItem[] items = new SelectItem[size];
+        int i = 0;
+        if (selectOne) {
+            items[0] = new SelectItem("", "Seleccione una opcion");
+            i++;
+        }
+        for (UnidadSolicitante x : entities) {
+            items[i++] = new SelectItem(x.getIdUs(), x.getNombreUnidad());
+        }
+        return items;
+    }
+    
     public static void addErrorMessage(Exception ex, String defaultMsg) {
         String msg = ex.getLocalizedMessage();
         if (msg != null && msg.length() > 0) {

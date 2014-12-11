@@ -10,6 +10,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.Date;
+import javax.annotation.ManagedBean;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -54,6 +55,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Solicitudobra.findByNombreadmcontrato", query = "SELECT s FROM Solicitudobra s WHERE s.nombreadmcontrato = :nombreadmcontrato"),
     @NamedQuery(name = "Solicitudobra.findByCargoadmincontrato", query = "SELECT s FROM Solicitudobra s WHERE s.cargoadmincontrato = :cargoadmincontrato"),
     @NamedQuery(name = "Solicitudobra.findByDependenciaadmincontrato", query = "SELECT s FROM Solicitudobra s WHERE s.dependenciaadmincontrato = :dependenciaadmincontrato")})
+@ManagedBean
 public class Solicitudobra implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id

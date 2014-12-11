@@ -5,125 +5,134 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
-   
+
 
     <ui:composition template="/template.xhtml">
-     <ui:define name="body">
-        <ui:include src="../header.xhtml" />
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-3 col-md-2 sidebar">
-                    <div>
-                        <img src="../resources/images/logo.png"/>
+        <ui:define name="body">
+            <ui:include src="../header.xhtml" />
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-3 col-md-2 sidebar">
+                        <div>
+                            <img src="../resources/images/logo.png"/>
+                        </div>
+                        <hr/>
+                        <ul class="nav nav-sidebar">
+                            <li><a href="/SIACAM/faces/solicitudobra/List.xhtml">Lista de Solicitudes</a></li>
+                        </ul>
+                        <ul class="nav nav-sidebar">
+                            <li class="active"><a href="/SIACAM/faces/solicitudobra/Create.xhtml">Agregar Solicitud</a></li>
+                        </ul>
+
+
                     </div>
-                    <hr/>
-                    <ul class="nav nav-sidebar">
-                        <li><a href="/SIACAM/faces/solicitudobra/List.xhtml">Lista de Solicitudes</a></li>
-                    </ul>
-                    <ul class="nav nav-sidebar">
-                        <li class="active"><a href="/SIACAM/faces/solicitudobra/Create.xhtml">Agregar Solicitud</a></li>
-                    </ul>
-           
+                    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main"> 
+                        <h3>Ingrese los Datos de la Nueva Solicitud</h3>
 
-                </div>
-                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main"> 
-                    <h3>Ingrese los datos de la Nueva Solicitud</h3>
+                       
+                        <h:form id="form">
+                            <h:panelGrid id="grid" columns="3" cellpadding="5">
+                                <p:outputLabel value="Id De Solicitud:" for= "idSolicitud" />
+                                <p:inputText id="idSolicitud" value="#{solicitudobraController.selected.idSolicitud}" title="Id de solicitud" required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_idSolicitud}"/>
+                                <p:message for="idSolicitud" />
 
-                    <h:panelGroup id="messagePanel" layout="block">
-                        <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-                    </h:panelGroup>
-                    <h:form>
-                          
-                        <h:panelGrid id="grid" columns="3" cellpadding="5">
-                            <p:outputLabel value="Id De Solicitud:" for= "idSolicitud" />
-                            <p:inputText id="idSolicitud" value="#{solicitudobraController.selected.idSolicitud}" title="Id de solicitud" required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_idSolicitud}"/>
-                            <p:message for="idSolicitud" />
-                            
-                            <h:outputLabel value="Nombre Del Solicitante:" for="nombresolicitante" />
-                            <p:inputText id="nombresolicitante" value="#{solicitudobraController.selected.nombresolicitante}" title="Nombre y apellido" required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_nombresolicitante}"/>
-                            <p:message for="nombresolicitante" />
-                            
-                            <p:outputLabel value="Cargo Del Solicitante:" for="cargosolicitante" />
-                            <p:inputText id="cargosolicitante" value="#{solicitudobraController.selected.cargosolicitante}" title="Cargo ejem: Gerente De Servicios " required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_cargosolicitante}"/>
-                            <p:message for="cargosolicitante" />
-                            
-                            <h:outputLabel value="Dependencia Del Solicitante:" for="dependenciasolicitante" />
-                            <p:inputText id="dependenciasolicitante" value="#{solicitudobraController.selected.dependenciasolicitante}" title="Ejemplo: Gerencia De Servicios" required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_dependenciasolicitante}"/>
-                            <p:message for="dependenciasolicitante" />
-                            
-                            <h:outputLabel value="Fecha:" for="fecha" />
-                            <p:calendar id="fecha" value="#{solicitudobraController.selected.fecha}" title="mes/dia/año Ejemplo:11/7/2014" required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_fecha}" showOn="button" />
-                            <p:message for="fecha" />
-                    
-                            <p:outputLabel value="Nombre De Autorizante:" for="nombreautorizante" />
-                            <p:inputText id="nombreautorizante" value="#{solicitudobraController.selected.nombreautorizante}" title="Nombre y apellido" required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_nombreautorizante}"/>
-                            <p:message for="nombreautorizante" />
-                            
-                            <p:outputLabel value="Cargo Del Autorizante:" for="cargoautorizante" />
-                            <p:inputText id="cargoautorizante" value="#{solicitudobraController.selected.cargoautorizante}" title="Cargo" required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_cargoautorizante}"/>
-                            <p:message for="cargoautorizante" />
-                            
-                            <p:outputLabel value="Dependencia Del Autorizante:" for="dependenciaautorizante" />
-                            <p:inputText id="dependenciaautorizante" value="#{solicitudobraController.selected.dependenciaautorizante}" title="Dependencia" required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_dependenciaautorizante}"/>
-                            <p:message for="dependenciaautorizante" />
-                            
-                            <p:outputLabel value="Justificación:" for="justificacion" />
-                            <p:inputTextarea id="justificacion" value="#{solicitudobraController.selected.justificacion}" title="Breve justifiacion, no obligatorio" required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_justificacion}"/>
-                            <p:message for="justificacion" />
-                            
-                            <p:outputLabel value="Valor Estimado:" for="valorestimado" />
-                            <p:inputText id="valorestimado" value="#{solicitudobraController.selected.valorestimado}" title="$" required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_valorestimado}"/>
-                            <p:message for="valorestimado" />
-                            
-                            <p:outputLabel value="Forma de Entrega" for="formaentrega" />
-                            <p:inputText id="formaentrega" value="#{solicitudobraController.selected.formaentrega}" title="Forma de entrega de solicitud" required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_formaentrega}"/>
-                            <p:message for="formaentrega" />
-                            
-                            <p:outputLabel value="Lugar De Entrega:" for="lugarentrega" />
-                            <p:inputText id="lugarentrega" value="#{solicitudobraController.selected.lugarentrega}" title="Lugar de entrega" required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_lugarentrega}"/>
-                            <p:message for="lugarentrega" />
-                            
-                            <p:outputLabel value="Otras Condiciones:" for="otrascondiciones" />
-                            <p:inputTextarea id="otrascondiciones" value="#{solicitudobraController.selected.otrascondiciones}" title="No obligatorio" />
-                            <p:message for="otrascondiciones" />
-                            
-                            <p:outputLabel value="Observaciones:" for="observaciones" />
-                            <p:inputText id="observaciones" value="#{solicitudobraController.selected.observaciones}" title="#{bundle.CreateSolicitudobraTitle_observaciones}" />
-                            <p:message for="observaciones" />
-                            
-                            <p:outputLabel value="Nombre Del Administrador de Contrato:" for="nombreadmcontrato" />
-                            <p:inputText id="nombreadmcontrato" value="#{solicitudobraController.selected.nombreadmcontrato}" title="Nombre y apellido" required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_nombreadmcontrato}"/>
-                            <p:message for="nombreadmcontrato" />
-                            
-                            <p:outputLabel value="Cargo Del Administrador de Contrato:" for="cargoadmincontrato" />
-                            <p:inputText id="cargoadmincontrato" value="#{solicitudobraController.selected.cargoadmincontrato}" title="Cargo" required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_cargoadmincontrato}"/>
-                            <p:message for="cargoadmincontrato" />
-                            
-                            <p:outputLabel value="Dependencia Del Administrador De Contrato:" for="dependenciaadmincontrato" />
-                            <p:inputText id="dependenciaadmincontrato" value="#{solicitudobraController.selected.dependenciaadmincontrato}" title="Dependencia" required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_dependenciaadmincontrato}"/>
-                            <p:message for="dependenciaadmincontrato" />
-                            
-                            <p:outputLabel value="Id De Unidad Solicitante:" for="idUs" />
-                            <h:selectOneMenu id="idUs" value="#{solicitudobraController.selected.idUs}" title="Id de Solicitud">
-                                <f:selectItems value="#{unidadSolicitanteController.itemsAvailableSelectOne}"/>
-                            </h:selectOneMenu>
-                            <p:message for="idUs" />
-                        </h:panelGrid>
-                               
-                        <br />
-                        <h:commandLink action="#{solicitudobraController.create}" value="#{bundle.CreateSolicitudobraSaveLink}" />
-                        <br />
-                        <br />
-                        <h:commandLink action="#{solicitudobraController.prepareList}" value="#{bundle.CreateSolicitudobraShowAllLink}" immediate="true"/>
-                        <br />
-                        <br />
-                        <h:link outcome="/index" value="#{bundle.CreateSolicitudobraIndexLink}"/>
+                                <p:outputLabel value="Nombre Del Solicitante:" for="nombresolicitante" />
+                                <p:inputText id="nombresolicitante" value="#{solicitudobraController.selected.nombresolicitante}" title="Nombre y apellido" required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_nombresolicitante}"/>
+                                <p:message for="nombresolicitante" />
 
-                    </h:form>
-                </div>
+                                <p:outputLabel value="Cargo Del Solicitante:" for="cargosolicitante" />
+                                <p:inputText id="cargosolicitante" value="#{solicitudobraController.selected.cargosolicitante}" title="Cargo ejem: Gerente De Servicios " required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_cargosolicitante}"/>
+                                <p:message for="cargosolicitante" />
+
+                                <p:outputLabel value="Dependencia Del Solicitante:" for="dependenciasolicitante" />
+                                <p:inputText id="dependenciasolicitante" value="#{solicitudobraController.selected.dependenciasolicitante}" title="Ejemplo: Gerencia De Servicios" required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_dependenciasolicitante}"/>
+                                <p:message for="dependenciasolicitante" />
+                                
+                                
+                                <p:outputLabel value="Fecha:" for="fecha" />
+                                <p:calendar id="fecha" value="#{solicitudobraController.selected.fecha}" title= "mes/dia/año Ejemplo:11/7/2014" required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_fecha}" showOn="button" />
+                                <p:message for="fecha" />
+
+                                <p:outputLabel value="Nombre De Autorizante:" for="nombreautorizante" />
+                                <p:inputText id="nombreautorizante" value="#{solicitudobraController.selected.nombreautorizante}" title="Nombre y apellido" required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_nombreautorizante}"/>
+                                <p:message for="nombreautorizante" />
+
+                                <p:outputLabel value="Cargo Del Autorizante:" for="cargoautorizante" />
+                                <p:inputText id="cargoautorizante" value="#{solicitudobraController.selected.cargoautorizante}" title="Cargo" required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_cargoautorizante}"/>
+                                <p:message for="cargoautorizante" />
+
+                                <p:outputLabel value="Dependencia Del Autorizante:" for="dependenciaautorizante" />
+                                <p:inputText id="dependenciaautorizante" value="#{solicitudobraController.selected.dependenciaautorizante}" title="Dependencia" required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_dependenciaautorizante}"/>
+                                <p:message for="dependenciaautorizante" />
+
+                                <p:outputLabel value="Justificación:" for="justificacion" />
+                                <p:inputTextarea id="justificacion" value="#{solicitudobraController.selected.justificacion}" title="Breve justifiacion, no obligatorio" required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_justificacion}"/>
+                                <p:message for="justificacion" />
+
+                                <p:outputLabel value="Valor Estimado:" for="valorestimado" />
+                                <p:inputText id="valorestimado" value="#{solicitudobraController.selected.valorestimado}" title="$" required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_valorestimado}"/>
+                                <p:message for="valorestimado" />
+
+                                <p:outputLabel value="Forma de Entrega" for="formaentrega" />
+                                <p:inputText id="formaentrega" value="#{solicitudobraController.selected.formaentrega}" title="Forma de entrega de solicitud" required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_formaentrega}"/>
+                                <p:message for="formaentrega" />
+
+                                <p:outputLabel value="Lugar De Entrega:" for="lugarentrega" />
+                                <p:inputText id="lugarentrega" value="#{solicitudobraController.selected.lugarentrega}" title="Lugar de entrega" required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_lugarentrega}"/>
+                                <p:message for="lugarentrega" />
+
+                                <p:outputLabel value="Otras Condiciones:" for="otrascondiciones" />
+                                <p:inputTextarea id="otrascondiciones" value="#{solicitudobraController.selected.otrascondiciones}" title="No obligatorio" />
+                                <p:message for="otrascondiciones" />
+
+                                <p:outputLabel value="Observaciones:" for="observaciones" />
+                                <p:inputTextarea id="observaciones" value="#{solicitudobraController.selected.observaciones}" title="#{bundle.CreateSolicitudobraTitle_observaciones}" />
+                                <p:message for="observaciones" />
+
+                                <p:outputLabel value="Nombre Del Administrador de Contrato:" for="nombreadmcontrato" />
+                                <p:inputText id="nombreadmcontrato" value="#{solicitudobraController.selected.nombreadmcontrato}" title="Nombre y apellido" required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_nombreadmcontrato}"/>
+                                <p:message for="nombreadmcontrato" />
+
+                                <p:outputLabel value="Cargo Del Administrador de Contrato:" for="cargoadmincontrato" />
+                                <p:inputText id="cargoadmincontrato" value="#{solicitudobraController.selected.cargoadmincontrato}" title="Cargo" required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_cargoadmincontrato}"/>
+                                <p:message for="cargoadmincontrato" />
+
+                                <p:outputLabel value="Dependencia Del Administrador De Contrato:" for="dependenciaadmincontrato" />
+                                <p:inputText id="dependenciaadmincontrato" value="#{solicitudobraController.selected.dependenciaadmincontrato}" title="Dependencia" required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_dependenciaadmincontrato}"/>
+                                <p:message for="dependenciaadmincontrato" />
+
+                                <p:outputLabel value="Id De Unidad Solicitante:" for="idUs" />
+                                <h:selectOneMenu id="idUs" value="#{solicitudobraController.selected.idUs}" title="Id de Solicitud">
+                                    <f:selectItems value="#{unidadSolicitanteController.itemsAvailableSelectOne}"/>
+                                </h:selectOneMenu>
+                                <p:message for="idUs" />
+                            </h:panelGrid>
+
+                            <br />
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <button type="submit" class="col-sm-12 btn btn-default">
+                                        <h:link outcome="/index" value="#{bundle.CreateSolicitudobraIndexLink}"/>
+                                    </button> 
+                                </div>
+
+                                <div class="col-sm-2">
+                                    <button type="submit" class="col-sm-12 btn btn-default" ajax="false">
+                                        <h:commandLink action="#{solicitudobraController.create}" value="#{bundle.CreateSolicitudobraSaveLink}"  />
+                                    </button> 
+                                </div>
+                                <div class="col-sm-3">
+                                    <button type="submit" class="col-sm-12 btn btn-default">
+                                        <h:commandLink action="#{solicitudobraController.prepareList}" value="#{bundle.CreateSolicitudobraShowAllLink}" immediate="true"/>
+                                    </button> 
+                                </div>
+                            </div> 
+                            <br />
+                        </h:form>
+                    </div>
+                </div> 
             </div> 
-        </div> 
-    </ui:define>
-        </ui:composition>
+        </ui:define>
+    </ui:composition>
 
 </html>

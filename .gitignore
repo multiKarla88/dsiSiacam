@@ -2,3 +2,4 @@
 *.class
 SIACAM/setup/glassfish-resources.xml
 SIACAM/nbproject/private/private.xml
+/SIACAM/dist/

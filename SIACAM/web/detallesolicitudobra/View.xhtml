@@ -47,17 +47,54 @@
                                 <h:outputText value="#{detallesolicitudobraController.selected.idSolicitud}" title="#{bundle.ViewDetallesolicitudobraTitle_idSolicitud}"/>
                             </h:panelGrid>
                             <br />
-                            <h:commandLink action="#{detallesolicitudobraController.destroyAndView}" value="#{bundle.ViewDetallesolicitudobraDestroyLink}"/>
                             <br />
                             <br />
-                            <h:link outcome="Edit" value="#{bundle.ViewDetallesolicitudobraEditLink}"/>
+
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <button type="submit" class="col-sm-12 btn btn-default">
+                                        <h:link outcome="/index" value="#{bundle.ViewDetallesolicitudobraIndexLink}"/>
+                                    </button> 
+                                </div>
+
+                                <div class="col-sm-2">
+                                    <button type="submit" class="col-sm-12 btn btn-default">
+                                        <h:commandLink action="#{detallesolicitudobraController.destroyAndView}" value="#{bundle.ViewDetallesolicitudobraDestroyLink}"/>
+                                    </button> 
+                                </div>
+                                <div class="col-sm-2">
+                                    <button type="submit" class="col-sm-12 btn btn-default">
+                                        <h:link outcome="Edit" value="#{bundle.ViewDetallesolicitudobraEditLink}"/>
+                                    </button> 
+                                </div>
+
+                            </div>
                             <br />
-                            <h:commandLink action="#{detallesolicitudobraController.prepareCreate}" value="#{bundle.ViewDetallesolicitudobraCreateLink}" />
                             <br />
-                            <h:commandLink action="#{detallesolicitudobraController.prepareList}" value="#{bundle.ViewDetallesolicitudobraShowAllLink}"/>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <button type="submit" class="col-sm-12 btn btn-default">
+                                        <h:commandLink action="#{detallesolicitudobraController.prepareCreate}" value="#{bundle.ViewDetallesolicitudobraCreateLink}" />
+                                    </button> 
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <button type="submit" class="col-sm-12 btn btn-default">
+                                        <h:commandLink action="#{detallesolicitudobraController.prepareList}" value="#{bundle.ViewDetallesolicitudobraShowAllLink}"/>
+                                    </button> 
+                                </div>
+                            </div>
+
                             <br />
                             <br />
-                            <h:link outcome="/index" value="#{bundle.ViewDetallesolicitudobraIndexLink}"/>
+
+                            <br />
+
+                            <br />
+
+                            <br />
+                            <br />
+
 
                         </h:form>
                     </div>

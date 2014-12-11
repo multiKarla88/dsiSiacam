@@ -40,17 +40,53 @@
                                 <h:outputText value="#{unidadSolicitanteController.selected.nombreUnidad}" title="#{bundle.ViewUnidadSolicitanteTitle_nombreUnidad}"/>
                             </h:panelGrid>
                             <br />
-                            <h:commandLink action="#{unidadSolicitanteController.destroyAndView}" value="#{bundle.ViewUnidadSolicitanteDestroyLink}"/>
                             <br />
                             <br />
-                            <h:link outcome="Edit" value="#{bundle.ViewUnidadSolicitanteEditLink}"/>
-                            <br />
-                            <h:commandLink action="#{unidadSolicitanteController.prepareCreate}" value="#{bundle.ViewUnidadSolicitanteCreateLink}" />
-                            <br />
-                            <h:commandLink action="#{unidadSolicitanteController.prepareList}" value="#{bundle.ViewUnidadSolicitanteShowAllLink}"/>
                             <br />
                             <br />
-                            <h:link outcome="/index" value="#{bundle.ViewUnidadSolicitanteIndexLink}"/>
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <div class="row">
+                                 <div class="col-sm-2">
+                                    <button type="submit" class="col-sm-12 btn btn-default">
+                                        <h:link outcome="/index" value="#{bundle.ViewUnidadSolicitanteIndexLink}"/>
+                                    </button> 
+                                </div>
+                                <div class="col-sm-2">
+                                    <button type="submit" class="col-sm-12 btn btn-default">
+                                        <h:commandLink action="#{unidadSolicitanteController.destroyAndView}" value="#{bundle.ViewUnidadSolicitanteDestroyLink}"/>
+                                    </button> 
+                                </div>
+                                <div class="col-sm-2">
+                                    <button type="submit" class="col-sm-12 btn btn-default">
+                                        <h:link outcome="Edit" value="#{bundle.ViewUnidadSolicitanteEditLink}"/>
+                                    </button> 
+                                </div>
+                                <div class="col-sm-3">
+                                    <button type="submit" class="col-sm-12 btn btn-default">
+                                        <h:commandLink action="#{unidadSolicitanteController.prepareCreate}" value="#{bundle.ViewUnidadSolicitanteCreateLink}" />
+                                    </button> 
+                                </div>
+                            </div>
+                            <br />
+                            <br />
+                            <div class="col-sm-9">
+                             <div align="center">
+                              <button type="submit" class = "btn btn-default"> 
+                                        <h:commandLink action="#{unidadSolicitanteController.prepareList}" value="#{bundle.ViewUnidadSolicitanteShowAllLink}"/>
+                                    </button> 
+                                 </div>
+                            </div>
+                                
+                           
+                            <br />
                         </h:form>
                     </div>
                 </div> 

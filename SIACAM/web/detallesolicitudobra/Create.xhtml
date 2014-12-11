@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
 
     <ui:composition template="/template.xhtml">
@@ -26,38 +27,63 @@
                         <h3>Ingrese los datos del Detalle de Solicitud</h3>
 
 
-                        <h:panelGroup id="messagePanel" layout="block">
-                            <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-                        </h:panelGroup>
                         <h:form>
-                            <h:panelGrid columns="2">
-                                <h:outputLabel value="#{bundle.CreateDetallesolicitudobraLabel_idDetalle}" for="idDetalle" />
-                                <h:inputText id="idDetalle" value="#{detallesolicitudobraController.selected.idDetalle}" title="#{bundle.CreateDetallesolicitudobraTitle_idDetalle}" required="true" requiredMessage="#{bundle.CreateDetallesolicitudobraRequiredMessage_idDetalle}"/>
-                                <h:outputLabel value="#{bundle.CreateDetallesolicitudobraLabel_cantidad}" for="cantidad" />
-                                <h:inputText id="cantidad" value="#{detallesolicitudobraController.selected.cantidad}" title="#{bundle.CreateDetallesolicitudobraTitle_cantidad}" required="true" requiredMessage="#{bundle.CreateDetallesolicitudobraRequiredMessage_cantidad}"/>
-                                <h:outputLabel value="#{bundle.CreateDetallesolicitudobraLabel_unidadmedida}" for="unidadmedida" />
-                                <h:inputText id="unidadmedida" value="#{detallesolicitudobraController.selected.unidadmedida}" title="#{bundle.CreateDetallesolicitudobraTitle_unidadmedida}" required="true" requiredMessage="#{bundle.CreateDetallesolicitudobraRequiredMessage_unidadmedida}"/>
-                                <h:outputLabel value="#{bundle.CreateDetallesolicitudobraLabel_obrasolicitada}" for="obrasolicitada" />
-                                <h:inputText id="obrasolicitada" value="#{detallesolicitudobraController.selected.obrasolicitada}" title="#{bundle.CreateDetallesolicitudobraTitle_obrasolicitada}" required="true" requiredMessage="#{bundle.CreateDetallesolicitudobraRequiredMessage_obrasolicitada}"/>
-                                <h:outputLabel value="#{bundle.CreateDetallesolicitudobraLabel_especifictecnicas}" for="especifictecnicas" />
-                                <h:inputText id="especifictecnicas" value="#{detallesolicitudobraController.selected.especifictecnicas}" title="#{bundle.CreateDetallesolicitudobraTitle_especifictecnicas}" required="true" requiredMessage="#{bundle.CreateDetallesolicitudobraRequiredMessage_especifictecnicas}"/>
+                            <h:panelGrid  id="grid" columns="3" cellpadding="5">
+                                <p:outputLabel value="#{bundle.CreateDetallesolicitudobraLabel_idDetalle}" for="idDetalle" />
+                                <p:inputText id="idDetalle" value="#{detallesolicitudobraController.selected.idDetalle}" title="#{bundle.CreateDetallesolicitudobraTitle_idDetalle}" required="true" requiredMessage="#{bundle.CreateDetallesolicitudobraRequiredMessage_idDetalle}"/>
+                                <p:message for="idDetalle" />
+
+                                <p:outputLabel value="#{bundle.CreateDetallesolicitudobraLabel_cantidad}" for="cantidad" />
+                                <p:inputText id="cantidad" value="#{detallesolicitudobraController.selected.cantidad}" title="#{bundle.CreateDetallesolicitudobraTitle_cantidad}" required="true" requiredMessage="#{bundle.CreateDetallesolicitudobraRequiredMessage_cantidad}"/>
+                                <p:message for="cantidad" />
+
+                                <p:outputLabel value="#{bundle.CreateDetallesolicitudobraLabel_unidadmedida}" for="unidadmedida" />
+                                <p:inputText id="unidadmedida" value="#{detallesolicitudobraController.selected.unidadmedida}" title="#{bundle.CreateDetallesolicitudobraTitle_unidadmedida}" required="true" requiredMessage="#{bundle.CreateDetallesolicitudobraRequiredMessage_unidadmedida}"/>
+                                <p:message for="unidadmedida" />
+
+                                <p:outputLabel value="#{bundle.CreateDetallesolicitudobraLabel_obrasolicitada}" for="obrasolicitada" />
+                                <p:inputText id="obrasolicitada" value="#{detallesolicitudobraController.selected.obrasolicitada}" title="#{bundle.CreateDetallesolicitudobraTitle_obrasolicitada}" required="true" requiredMessage="#{bundle.CreateDetallesolicitudobraRequiredMessage_obrasolicitada}"/>
+                                <p:message for="obrasolicitada" />
+
+                                <p:outputLabel value="#{bundle.CreateDetallesolicitudobraLabel_especifictecnicas}" for="especifictecnicas" />
+                                <p:inputText id="especifictecnicas" value="#{detallesolicitudobraController.selected.especifictecnicas}" title="#{bundle.CreateDetallesolicitudobraTitle_especifictecnicas}" required="true" requiredMessage="#{bundle.CreateDetallesolicitudobraRequiredMessage_especifictecnicas}"/>
+                                <p:message for="especifictecnicas" />
+
                                 <h:outputLabel value="#{bundle.CreateDetallesolicitudobraLabel_codigounspsc}" for="codigounspsc" />
                                 <h:selectOneMenu id="codigounspsc" value="#{detallesolicitudobraController.selected.codigounspsc}" title="#{bundle.CreateDetallesolicitudobraTitle_codigounspsc}" required="true" requiredMessage="#{bundle.CreateDetallesolicitudobraRequiredMessage_codigounspsc}">
                                     <f:selectItems value="#{unspscController.itemsAvailableSelectOne}"/>
                                 </h:selectOneMenu>
+                                <p:message for="codigounspsc" />
+
                                 <h:outputLabel value="#{bundle.CreateDetallesolicitudobraLabel_idSolicitud}" for="idSolicitud" />
                                 <h:selectOneMenu id="idSolicitud" value="#{detallesolicitudobraController.selected.idSolicitud}" title="#{bundle.CreateDetallesolicitudobraTitle_idSolicitud}" >
                                     <f:selectItems value="#{solicitudobraController.itemsAvailableSelectOne}"/>
                                 </h:selectOneMenu>
+                                <p:message for="idSolicitud" />
+
                             </h:panelGrid>
                             <br />
-                            <h:commandLink action="#{detallesolicitudobraController.create}" value="#{bundle.CreateDetallesolicitudobraSaveLink}" />
                             <br />
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <button type="submit" class="col-sm-12 btn btn-default">
+                                        <h:link outcome="/index" value="#{bundle.CreateDetallesolicitudobraIndexLink}"/>
+                                    </button> 
+                                </div>
+
+                                <div class="col-sm-2">
+                                    <button type="submit" class="col-sm-12 btn btn-default">
+                                        <h:commandLink action="#{detallesolicitudobraController.create}" value="#{bundle.CreateDetallesolicitudobraSaveLink}" />
+                                    </button> 
+                                </div>
+                                <div class="col-sm-4">
+                                    <button type="submit" class="col-sm-12 btn btn-default">
+                                        <h:commandLink action="#{detallesolicitudobraController.prepareList}" value="#{bundle.CreateDetallesolicitudobraShowAllLink}" immediate="true"/>
+                                    </button> 
+                                </div>
+                            </div> 
                             <br />
-                            <h:commandLink action="#{detallesolicitudobraController.prepareList}" value="#{bundle.CreateDetallesolicitudobraShowAllLink}" immediate="true"/>
-                            <br />
-                            <br />
-                            <h:link outcome="/index" value="#{bundle.CreateDetallesolicitudobraIndexLink}"/>
+
                         </h:form>
                     </div>
                 </div> 
